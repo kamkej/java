@@ -29,7 +29,7 @@ import org.json.simple.parser.ParseException;
  * @author julio
  */
 public class JsonParse {
-    
+     JSONArray co;
     public void LoadJson() throws IOException, ParseException, SQLException, ClassNotFoundException{
           
       FileReader reader = new FileReader("allsets.json"); 
@@ -42,11 +42,12 @@ public class JsonParse {
          
             while (iterator.hasNext()) {
                  JSONArray cards = (JSONArray) iterator.next().get("cards");
+                 String code = String.valueOf(iterator.next().get("code"));
                 for (Object card : cards) {
                   Card c = new Card();
                     
                     JSONObject js = (JSONObject) card;
-                    c.setId(String.valueOf(js.get("id")));
+              /*      c.setId(String.valueOf(js.get("id")));
                     c.setName(String.valueOf(js.get("name")));
                     c.setNames(String.valueOf(js.get("names")));
                     c.setManaCost(String.valueOf(js.get("manaCost")));
@@ -55,8 +56,8 @@ public class JsonParse {
                     }catch(NumberFormatException e){
                         c.setCmc(0);
                     }
-//                    c.setColor(Integer.parseInt(js.get("color").toString()));
-//                    c.setColorIdentity(Integer.parseInt(js.get("colorIdentity").toString()));
+                    c.setColor(Integer.parseInt(String.valueOf(js.get("colors"))));
+                    c.setColorIdentity(Integer.parseInt(String.valueOf(js.get("colorIdentity"))));
                     c.setType(String.valueOf(js.get("type")));
                     c.setSupertypes(String.valueOf(js.get("supertypes")));
                     c.setTypes(String.valueOf(js.get("types")));
@@ -81,7 +82,18 @@ public class JsonParse {
                     c.setStarter(String.valueOf(js.get("starter")));
                     
                     //System.out.println(c.toString());
-                    conn.insertTb(c);
+                   // conn.insertTb(c);*/
+                   /* if(!String.valueOf(js.get("names")).equalsIgnoreCase("null")){
+                       System.out.println(String.valueOf(js.get("names")));
+                    }*/
+                    
+                   String color =   String.valueOf(js.get("colors")).replace("[\"", "");
+             
+                
+                      System.out.println(code+" - "+js.get("name")+" - "+color+" - "+js.get("colorIdentity"));
+                  
+                    
+                   
                 }     
                
             }

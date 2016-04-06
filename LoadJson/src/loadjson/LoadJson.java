@@ -26,19 +26,19 @@ public class LoadJson {
             Conn conn = new Conn();
             JsonParse jp = new JsonParse();
             
-            //jp.LoadJson();
+            jp.LoadJson();
             
            
           //  conn.insertTb();
-            conn.selectDb();
+          //  conn.selectDb();
           //conn.delete();
 
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println(ex.getMessage());
              System.out.println(ex.getCause());
-        }/*catch (IOException | ParseException ex) {
+        }catch (IOException | ParseException ex) {
              System.out.println(ex.getMessage());
-        }*/
+        }
 
     }
     
