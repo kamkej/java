@@ -90,7 +90,7 @@ public class Conn {
         stmt.close();
         c.commit();
         //c.close();
-      System.out.println("Records created successfully");
+     // System.out.println("Records created successfully");
 
     }
     public void delete() throws SQLException{

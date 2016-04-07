@@ -19,8 +19,8 @@ public class Card implements Serializable {
     private String names;
     private String manaCost;
     private float cmc;
-    private int color;
-    private int colorIdentity;
+    private String color;
+    private String colorIdentity;
     private String type;
     private String supertypes;
     private String types;
@@ -44,6 +44,7 @@ public class Card implements Serializable {
     private String reserved;
     private String releaseDate;
     private String starter;
+    private String SetsCode;
 
     @Override
     public String toString() {
@@ -101,19 +102,19 @@ public class Card implements Serializable {
         this.cmc = cmc;
     }
 
-    public int getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(int color) {
+    public void setColor(String color) {
         this.color = color;
     }
 
-    public int getColorIdentity() {
+    public String getColorIdentity() {
         return colorIdentity;
     }
 
-    public void setColorIdentity(int colorIdentity) {
+    public void setColorIdentity(String colorIdentity) {
         this.colorIdentity = colorIdentity;
     }
 
@@ -299,6 +300,14 @@ public class Card implements Serializable {
 
     public void setStarter(String starter) {
         this.starter = starter;
+    }
+
+    public String getSetsCode() {
+        return SetsCode;
+    }
+
+    public void setSetsCode(String SetsCode) {
+        this.SetsCode = SetsCode;
     }
     
     

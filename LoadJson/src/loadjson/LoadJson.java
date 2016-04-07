@@ -30,7 +30,7 @@ public class LoadJson {
             
            
           //  conn.insertTb();
-          //  conn.selectDb();
+           // conn.selectDb();
           //conn.delete();
 
         } catch (ClassNotFoundException | SQLException ex) {
