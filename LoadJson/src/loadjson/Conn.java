@@ -51,7 +51,7 @@ public class Conn {
     }
     
     public void insertTb(Card card) throws SQLException{
-        String sql  = "insert into cards (id,layout,name,names,manaCost,cmc,color,colorIdentity,type,supertypes,types ,subtypes ,rarity ,text ,flavor ,artist,number,power,toughness,loyalty,multiverseid ,variations ,imageName ,watermark ,border,timeshifted ,hand ,life ,reserved ,releaseDate,starter)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql  = "insert into cards (id,layout,name,names,manaCost,cmc,color,colorIdentity,type,supertypes,types ,subtypes ,rarity ,text ,flavor ,artist,number,power,toughness,loyalty,multiverseid ,variations ,imageName ,watermark ,border,timeshifted ,hand ,life ,reserved ,releaseDate,starter,setscode)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement stmt = c.prepareStatement(sql);
         stmt.setString(1, card.getId());
         stmt.setString(2, card.getLayout());
@@ -84,6 +84,7 @@ public class Conn {
         stmt.setString(29, card.getReserved());
         stmt.setString(30, card.getReleaseDate());
         stmt.setString(31, card.getStarter());
+        stmt.setString(32, card.getSetsCode());
 
         stmt.execute();
         
