@@ -30,11 +30,13 @@ public class LoadJson {
             
            
           //  conn.insertTb();
-          //  conn.selectDb();
+           // conn.selectDb();
+          //conn.delete();
 
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println(ex.getMessage());
-        } catch (IOException | ParseException ex) {
+             System.out.println(ex.getCause());
+        }catch (IOException | ParseException ex) {
              System.out.println(ex.getMessage());
         }
 
