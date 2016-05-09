@@ -1,15 +1,10 @@
 package loadjson;
 
 
-import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -52,10 +47,19 @@ public class JsonParse {
                   Card c = new Card();
                     
                     JSONObject js = (JSONObject) card;
-                   c.setId(String.valueOf(js.get("id")));
-                    c.setName(String.valueOf(js.get("name")));
+                    c.setId(String.valueOf(js.get("id")));
+                    try{
+                    c.setName(js.get("name").toString());
+                    }catch(NullPointerException e ){
+                        c.setName("");
+                    }
                     c.setNames(String.valueOf(js.get("names")).replaceAll("[\\[\\\"\\]]", ""));
-                    c.setManaCost(String.valueOf(js.get("manaCost")));
+                   
+                    try{
+                    c.setManaCost(js.get("manaCost").toString());
+                    }catch(NullPointerException e){
+                        c.setManaCost("");
+                    }
                     try {
                     c.setCmc(Float.parseFloat(String.valueOf(js.get("cmc"))));
                     }catch(NumberFormatException e){
@@ -63,32 +67,109 @@ public class JsonParse {
                     }
                     c.setColor( String.valueOf(js.get("colors")).replaceAll("[\\[\\\"\\]]", ""));
                     c.setColorIdentity(String.valueOf(js.get("colorIdentity")).replaceAll("[\\[\\\"\\]]", ""));
-                    c.setType(String.valueOf(js.get("type")));
-                    c.setSupertypes(String.valueOf(js.get("supertypes")));
-                    c.setTypes(String.valueOf(js.get("types")));
-                    c.setSubtypes(String.valueOf(js.get("subtypes")));
-                    c.setRarity(String.valueOf(js.get("rarity")));
-                    c.setText(String.valueOf(js.get("text")));
-                    c.setFlavor(String.valueOf(js.get("flavor")));
-                    c.setArtist(String.valueOf(js.get("artist")));
-                    c.setNumber(String.valueOf(js.get("number")));
-                    c.setPower(String.valueOf(js.get("power")));
-                    c.setToughness(String.valueOf(js.get("toughness")));
-                    c.setLoyalty(String.valueOf(js.get("loyalty")));
+                    try{
+                    c.setType(js.get("type").toString());
+                    }catch(NullPointerException e){
+                       c.setType("");
+                    }
+                    try{
+                    c.setSupertypes(js.get("supertypes").toString());
+                    }catch(NullPointerException e){
+                       c.setSupertypes("");
+                    }
+                    try{
+                    c.setTypes(js.get("types").toString());
+                    }catch(NullPointerException e){
+                        c.setTypes("");
+                    }
+                    try{
+                    c.setSubtypes(js.get("subtypes").toString());
+                    }catch(NullPointerException e){
+                        c.setSubtypes("");
+                    }
+                    try{
+                    c.setRarity(js.get("rarity").toString());
+                    }catch(NullPointerException e){
+                        c.setRarity("");
+                    }
+                    try{
+                    c.setText(js.get("text").toString());
+                    }catch(NullPointerException e){
+                       c.setText("");
+                    }
+                    try{
+                    c.setFlavor(js.get("flavor").toString());
+                    }catch(NullPointerException e){
+                        c.setFlavor("");
+                    }
+                    try{
+                    c.setArtist(js.get("artist").toString());
+                    }catch(NullPointerException e){
+                      c.setArtist("");
+                    }
+                    try{
+                    c.setNumber(js.get("number").toString());
+                    }catch(NullPointerException e){
+                        c.setNumber("");
+                    }
+                    try{
+                    c.setPower(js.get("power").toString());
+                    }catch(NullPointerException e){
+                        c.setPower("");
+                    }
+                    try{
+                    c.setToughness(js.get("toughness").toString());
+                    }catch(NullPointerException e){
+                         c.setToughness("");
+                    }
+                    try{
+                    c.setLoyalty(js.get("loyalty").toString());
+                    }catch(NullPointerException e){
+                        c.setLoyalty("");
+                    }
                     c.setMultiverseid(String.valueOf(js.get("multiverseid")));
-                    c.setVariations(String.valueOf(js.get("variations")));
+                    try{
+                    c.setVariations(js.get("variations").toString());
+                    }catch(NullPointerException e){
+                        c.setVariations("");
+                    }
                     c.setImageName(String.valueOf(js.get("imageName")));
-                    c.setWatermark(String.valueOf(js.get("watermark")));
+                    try{
+                    c.setWatermark(js.get("watermark").toString());
+                    }catch(NullPointerException e){
+                        c.setWatermark("");
+                    }
                     c.setBorder(border);
-                    c.setTimeshifted(String.valueOf(js.get("timeshifted")));
-                    c.setHand(String.valueOf(js.get("hand")));
+                    try{
+                    c.setTimeshifted(js.get("timeshifted").toString());
+                    }catch(NullPointerException e){
+                       c.setTimeshifted("");
+                    }
+                    try{
+                    c.setHand(js.get("hand").toString());
+                    }catch(NullPointerException e){
+                        c.setHand("");
+                    }
+                    try{
                     c.setReserved(String.valueOf(js.get("reserved")));
-                    c.setReleaseDate(String.valueOf(js.get("releaseDate")));
-                    c.setStarter(String.valueOf(js.get("starter")));
+                    }
+                        catch(NullPointerException e){
+                    }
+                    try{
+                    c.setReleaseDate(js.get("releaseDate").toString());
+                    }catch(NullPointerException e){
+                        c.setReleaseDate("");
+                    }
+                    try{
+                    c.setStarter(js.get("starter").toString());
+                    }catch(NullPointerException e){
+                        c.setStarter("");
+                    }
+                   
                     c.setSetsCode(code);
                     
-                    //System.out.println(c.toString());
-                    conn.insertTb(c);
+                    System.out.println(c.getPower());
+                   // conn.insertTb(c);
                    
                    /* if(!String.valueOf(js.get("names")).equalsIgnoreCase("null")){
                        System.out.println(String.valueOf(js.get("names")));
