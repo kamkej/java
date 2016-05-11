@@ -168,8 +168,8 @@ public class JsonParse {
                    
                     c.setSetsCode(code);
                     
-                    System.out.println(c.getPower());
-                   // conn.insertTb(c);
+                    //System.out.println(c.getPower());
+                   conn.insertTb(c);
                    
                    /* if(!String.valueOf(js.get("names")).equalsIgnoreCase("null")){
                        System.out.println(String.valueOf(js.get("names")));
